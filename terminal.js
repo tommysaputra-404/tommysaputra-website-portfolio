@@ -1,8 +1,8 @@
-
 // Ambil input dan output terminal
 const input = document.getElementById("terminalInput");
 const output = document.getElementById("terminalOutput");
 
+// Daftar perintah
 const commands = {
     help: () => "commands: help about skills projects clear",
     about: () => "Tommy Saputra — Cyber Security Explorer",
@@ -10,43 +10,49 @@ const commands = {
     projects: () => "TommyCyberPortfolio | Cyber Terminal",
     ceo: () => "Future Security Engineer",
     clear: () => ""
-}
+};
 
-// BUAT audio setelah user pertama kali klik / fokus terminal
+// Audio keyboard
 let keySound;
-input.addEventListener("focus", function initAudio(){
-    keySound = new Audio("assets/sounds/keyboard.mp3");
-    keySound.volume = 0.5; // optional, supaya ga terlalu keras
 
-    // setelah diinisialisasi, hapus listener ini
+// Inisialisasi audio saat user pertama kali klik/fokus input
+input.addEventListener("focus", function initAudio() {
+    keySound = new Audio("assets/sounds/keyboard.mp3");
+    keySound.volume = 0.5; // optional, biar ga terlalu keras
+    // hapus listener ini supaya tidak bikin audio baru tiap klik
     input.removeEventListener("focus", initAudio);
 });
 
-// Mainkan sound setiap karakter
+// Mainkan sound setiap karakter ketik
 input.addEventListener("keydown", function(e){
-    // pastikan audio sudah dibuat
+    // pastikan audio sudah siap & hanya mainkan untuk karakter normal
     if(keySound && e.key.length === 1){
         keySound.currentTime = 0;
-        keySound.play().catch(err => console.log("Autoplay blocked, try click first"));
+        keySound.play().catch(err => {
+            console.log("Autoplay blocked, coba klik dulu terminal");
+        });
     }
 
-    // ENTER command
+    // Jalankan command saat tekan ENTER
     if(e.key === "Enter"){
         const cmd = input.value.trim().toLowerCase();
-        output.innerHTML += "<p>>> "+cmd+"</p>";
+
+        // tampilkan command yang diketik
+        output.innerHTML += `<p>>> ${cmd}</p>`;
 
         if(commands[cmd]){
             const result = commands[cmd]();
             if(cmd === "clear"){
-                output.innerHTML = "";
+                output.innerHTML = ""; // bersihkan terminal
             } else {
-                output.innerHTML += "<p>"+result+"</p>";
+                output.innerHTML += `<p>${result}</p>`;
             }
         } else {
             output.innerHTML += "<p>command not found</p>";
         }
-        input.value="";
+
+        input.value = ""; // reset input
+        // scroll ke bawah biar terlihat hasil baru
+        output.scrollTop = output.scrollHeight;
     }
 });
-
-
