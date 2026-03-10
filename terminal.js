@@ -1,3 +1,5 @@
+
+// Ambil input dan output terminal
 const input = document.getElementById("terminalInput");
 const output = document.getElementById("terminalOutput");
 
@@ -10,33 +12,41 @@ const commands = {
     clear: () => ""
 }
 
-// buat audio object sekali saja
-const keySound = new Audio("assets/sounds/keyboard.mp3");
+// BUAT audio setelah user pertama kali klik / fokus terminal
+let keySound;
+input.addEventListener("focus", function initAudio(){
+    keySound = new Audio("assets/sounds/keyboard.mp3");
+    keySound.volume = 0.5; // optional, supaya ga terlalu keras
 
-// mainkan setiap kali user ketik di terminal
-input.addEventListener("keydown", function(e){
-    if(e.key.length === 1){ // semua karakter
-        keySound.currentTime = 0;
-        keySound.play().catch(err => console.log(err));
-    }
+    // setelah diinisialisasi, hapus listener ini
+    input.removeEventListener("focus", initAudio);
 });
 
-// event untuk Enter
+// Mainkan sound setiap karakter
 input.addEventListener("keydown", function(e){
+    // pastikan audio sudah dibuat
+    if(keySound && e.key.length === 1){
+        keySound.currentTime = 0;
+        keySound.play().catch(err => console.log("Autoplay blocked, try click first"));
+    }
+
+    // ENTER command
     if(e.key === "Enter"){
         const cmd = input.value.trim().toLowerCase();
         output.innerHTML += "<p>>> "+cmd+"</p>";
+
         if(commands[cmd]){
             const result = commands[cmd]();
             if(cmd === "clear"){
                 output.innerHTML = "";
-            }else{
+            } else {
                 output.innerHTML += "<p>"+result+"</p>";
             }
-        }else{
+        } else {
             output.innerHTML += "<p>command not found</p>";
         }
         input.value="";
     }
 });
+
 
