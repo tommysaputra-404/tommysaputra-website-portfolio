@@ -3,175 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tommy Hacker Portfolio</title>
+<title>Tommy Cyber Portfolio</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- ================= BOOT SCREEN ================= -->
-<div id="boot">
-    <h1 class="bootTitle">CYBER SYSTEM INITIALIZING</h1>
-    <div id="bootText"></div>
-</div>
-
-<!-- ================= MATRIX BACKGROUND ================= -->
-<canvas id="matrix"></canvas>
-
-<!-- ================= HERO / WELCOME SECTION ================= -->
-<section id="hero">
-    <div class="heroOverlay"></div>
-    <div class="heroContainer">
-        <h1 class="glitch" data-text="WELCOME TO MY HACKER PORTFOLIO">WELCOME TO MY HACKER PORTFOLIO</h1>
-        <h2 class="subtitle">Tommy Saputra — Cyber Security Explorer</h2>
-        <p class="description">
-            Dive into the cyberpunk world of interactive terminals, matrix animations, and hacker style projects.
-        </p>
-        <img src="assets/images/hacker1.jpg" alt="Hacker" class="heroImg">
-        <div class="heroButtons">
-            <a href="#skills" class="btn">Explore Skills</a>
-            <a href="#terminal" class="btn">Open Terminal</a>
-        </div>
+  <!-- Hero Section -->
+  <section id="hero">
+    <canvas id="matrix"></canvas>
+    <div class="hero-text">
+      <h1>Tommy Saputra</h1>
+      <p>Cyber Security & Web Developer</p>
+      <img src="ronaldo-hero.jpg" alt="Cristiano Ronaldo" class="hero-img">
     </div>
-</section>
+  </section>
 
-<!-- ================= START SOUND BUTTON ================= -->
-<button id="startSound" class="btn">Start Terminal Sound</button>
-
-<!-- ================= ABOUT SECTION ================= -->
-<section id="about">
-    <h2 class="sectionTitle">ABOUT ME</h2>
-    <div class="aboutGrid">
-        <div class="aboutCard">
-            <h3>Who I Am</h3>
-            <p>Tommy Saputra, 18, cyber security enthusiast exploring networks, Linux, and digital systems.</p>
-        </div>
-        <div class="aboutCard">
-            <h3>Mission</h3>
-            <p>Learn cyber security, build powerful systems, and become a professional security engineer.</p>
-        </div>
-        <div class="aboutCard">
-            <h3>Hobby</h3>
-            <p>Adventure, technology exploration, coding experiments, hacking simulations.</p>
-        </div>
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="ronaldo1.jpg" alt="Ronaldo 1">
+      <img src="ronaldo2.jpg" alt="Ronaldo 2">
+      <img src="ronaldo3.jpg" alt="Ronaldo 3">
     </div>
-</section>
+  </section>
 
-<!-- ================= SKILLS SECTION ================= -->
-<section id="skills">
-    <h2 class="sectionTitle">CYBER SKILLS</h2>
-    <div class="skillsGrid">
-        <div class="skillCard"><h3>Cyber Security</h3><p>Ethical hacking fundamentals</p></div>
-        <div class="skillCard"><h3>Networking</h3><p>Understanding internet systems</p></div>
-        <div class="skillCard"><h3>Python</h3><p>Automation & security tools</p></div>
-        <div class="skillCard"><h3>Linux</h3><p>Terminal & system commands</p></div>
-        <div class="skillCard"><h3>Web Security</h3><p>Vulnerabilities & protection</p></div>
-        <div class="skillCard"><h3>Problem Solving</h3><p>Analyzing systems & fixing issues</p></div>
-    </div>
-</section>
+  <!-- About Section -->
+  <section id="about">
+    <p>Cyberpunk hacker-style portfolio showcasing projects, interactive terminal, and matrix animations.</p>
+  </section>
 
-<!-- ================= PROJECTS SECTION ================= -->
-<section id="projects">
-    <h2 class="sectionTitle">PROJECTS</h2>
-    <div class="projectGrid">
-        <div class="projectCard"><h3>TommyCyberPortfolio</h3><p>Hacker-themed portfolio with matrix background.</p></div>
-        <div class="projectCard"><h3>Cyber Terminal</h3><p>Interactive command terminal simulation.</p></div>
-        <div class="projectCard"><h3>Security Lab</h3><p>Experimenting with networking and security tools.</p></div>
-    </div>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Tommy Saputra</p>
+  </footer>
 
-<!-- ================= GALLERY SECTION ================= -->
-<section id="gallery">
-    <h2 class="sectionTitle">HACKER GALLERY</h2>
-    <div class="galleryGrid">
-        <img src="assets/images/hacker1.jpg" alt="Hacker 1">
-        <img src="assets/images/hacker2.jpg" alt="Hacker 2">
-        <img src="assets/images/hacker-laptop.jpg" alt="Hacker Laptop">
-        <img src="assets/images/hacker-mask.jpg" alt="Hacker Mask">
-    </div>
-</section>
-
-<!-- ================= TERMINAL SECTION ================= -->
-<section id="terminal">
-    <h2 class="sectionTitle">CYBER TERMINAL</h2>
-    <div class="terminalWindow">
-        <div id="terminalOutput"></div>
-        <div class="inputLine">
-            <span class="terminalPrefix">>>></span>
-            <input id="terminalInput" placeholder="type command...">
-        </div>
-    </div>
-    <div class="terminalHelp">
-        <p>Try commands:</p>
-        <ul><li>help</li><li>about</li><li>skills</li><li>projects</li><li>ceo</li><li>clear</li></ul>
-    </div>
-</section>
-
-<!-- ================= AI ASSISTANT ================= -->
-<section id="chatbot">
-    <h2 class="sectionTitle">AI ASSISTANT</h2>
-    <div class="chatContainer">
-        <input id="chatInput" placeholder="Ask the AI something...">
-        <div id="chatOutput"></div>
-    </div>
-</section>
-
-<!-- ================= CONTACT SECTION ================= -->
-<section id="contact">
-    <h2 class="sectionTitle">CONTACT</h2>
-    <div class="contactGrid">
-        <div class="contactCard"><h3>Email</h3><p>tommy@example.com</p></div>
-        <div class="contactCard"><h3>Location</h3><p>Subang, Indonesia</p></div>
-        <div class="contactCard"><h3>Role</h3><p>Cyber Security Explorer</p></div>
-    </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-    <p>© 2026 Tommy Saputra — Cyber Security Explorer</p>
-</footer>
-
-<!-- ================= JAVASCRIPT ================= -->
 <script src="matrix.js"></script>
 <script src="boot.js"></script>
-<script src="terminal.js"></script>
-<script src="particles.js"></script>
 <script src="glitch.js"></script>
+<script src="particles.js"></script>
 <script src="scanner.js"></script>
-
-<!-- ================= AI CHATBOT ================= -->
-<script>
-const inputChat = document.getElementById("chatInput");
-const outputChat = document.getElementById("chatOutput");
-inputChat.addEventListener("keydown", function(e){
-    if(e.key==="Enter"){
-        fetch("api/chatbot.php?q="+inputChat.value)
-        .then(res=>res.text())
-        .then(data=>{outputChat.innerHTML="<p>"+data+"</p>";});
-        inputChat.value="";
-    }
-});
-</script>
-
-<!-- ================= START TERMINAL SOUND ================= -->
-<script>
-const startBtn = document.getElementById("startSound");
-const terminalInput = document.getElementById("terminalInput");
-let keySound;
-
-startBtn.addEventListener("click", function(){
-    keySound = new Audio("assets/sounds/keyboard.mp3");
-    keySound.volume = 0.5;
-    startBtn.style.display="none";
-});
-
-terminalInput.addEventListener("keydown", function(e){
-    if(keySound && e.key.length === 1){
-        keySound.currentTime=0;
-        keySound.play().catch(err=>console.log(err));
-    }
-});
-</script>
-
+<script src="terminal.js"></script>
 </body>
 </html>
