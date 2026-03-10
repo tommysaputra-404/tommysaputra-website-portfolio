@@ -44,4 +44,16 @@ input.value=""
 
 }
 
+// buat audio object
+const keySound = new Audio("assets/sounds/keyboard.mp3");
+
+// mainkan setiap kali user ketik di terminal
+const terminalInput = document.getElementById("terminalInput");
+
+terminalInput.addEventListener("keydown", function(e){
+    if(e.key.length === 1){ // setiap karakter
+        keySound.currentTime = 0; // reset sound
+        keySound.play();
+    }
+});
 })
